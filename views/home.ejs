@@ -12,6 +12,26 @@
     <title><%= title %></title>
   </head>
   <body>
-    <h1>Perfectly running!!!!</h1>
+    <div class="container">
+      <div class="dnb">
+        <form action="/create-task" method="post">
+          <input type="text" name="descrip" placeholder="Description" />
+          <input type="date" name="date" required />
+          <input type="time" name="time" required />
+          <br />
+          <input type="checkbox" id="w" name="type" value="Work" />
+          <label for="w">work</label><br />
+          <input type="checkbox" id="p" name="type" value="personal" />
+          <label for="p">personal</label><br />
+          <input type="checkbox" id="s" name="type" value="school" />
+          <label for="s">school</label><br />
+          <input type="checkbox" id="c" name="type" value="cleaning" />
+          <label for="c">cleaning</label><br />
+          <input type="checkbox" id="o" name="type" value="other" />
+          <label for="o">other</label><br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
