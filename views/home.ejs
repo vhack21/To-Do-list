@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@300&family=Quicksand:wght@300&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/014cb1d708.js"
       crossorigin="anonymous"
@@ -12,25 +18,80 @@
     <title><%= title %></title>
   </head>
   <body>
+    <h1 style="text-align: center">TO-DO-LIST</h1>
     <div class="container">
       <div class="dnb">
-        <form action="/create-task" method="post">
-          <input type="text" name="descrip" placeholder="Description" />
-          <input type="date" name="date" required />
-          <input type="time" name="time" required />
-          <br />
-          <input type="checkbox" id="w" name="type" value="Work" />
-          <label for="w">work</label><br />
-          <input type="checkbox" id="p" name="type" value="personal" />
-          <label for="p">personal</label><br />
-          <input type="checkbox" id="s" name="type" value="school" />
-          <label for="s">school</label><br />
-          <input type="checkbox" id="c" name="type" value="cleaning" />
-          <label for="c">cleaning</label><br />
-          <input type="checkbox" id="o" name="type" value="other" />
-          <label for="o">other</label><br />
-          <button type="submit">Submit</button>
-        </form>
+        <div class="formd">
+          <form action="/create-task" method="post">
+            <h1 style="text-align: center">Description</h1>
+            <input
+              type="text"
+              name="descrip"
+              placeholder="Description"
+              id="dessty"
+            />
+            <input type="date" name="date" required />
+            <input type="time" name="time" required />
+            <br />
+            <input type="checkbox" id="w" name="type" value="Work" />
+            <label for="w">work</label><br />
+            <input type="checkbox" id="p" name="type" value="personal" />
+            <label for="p">personal</label><br />
+            <input type="checkbox" id="s" name="type" value="school" />
+            <label for="s">school</label><br />
+            <input type="checkbox" id="c" name="type" value="cleaning" />
+            <label for="c">cleaning</label><br />
+            <input type="checkbox" id="o" name="type" value="other" />
+            <label for="o">other</label><br />
+            <button type="submit" class="submitbtn">ADD</button>
+          </form>
+        </div>
+        <div class="taskDisplay">
+          <ul>
+            <%for(let i of task_list){%>
+            <li>
+              <!-- <div class="detailsoft">
+                <h3>Description:</h6>
+                <p><%= i.Description%></p>
+                <h6>DeadLine:</h6>
+                <p><%= i.DateofC%></p>
+                <h6>Deadline Time:</h6>
+                <p><%=i.timeofC%></p>
+              </div>
+              <div class="typo"><%=i.typeofC%></div>
+              <div class="delete-button">
+                <a href="/delete-task/?id=<%= i._id%>">
+                  <i class="fas fa-skull"></i>
+                </a>
+              </div> -->
+              <div class="comp">
+                <div class="typo">
+                  <h2 style="letter-spacing: 2px; text-transform: capitalize">
+                    <%=i.typeofC%>
+                  </h2>
+                </div>
+                <span>Mark as Completed:</span>
+                <a href="/delete-task/?id=<%= i._id%>" style="color: white">
+                  <i class="fas fa-check-square"></i>
+                </a>
+              </div>
+              <div class="abt">
+                <h3>Description:</h3>
+                <p><%= i.Description%></p>
+              </div>
+              <div class="deaddate">
+                <h3>DeadLine:</h3>
+                <p><%= i.DateofC%></p>
+              </div>
+              <div class="deadtime">
+                <h3>Deadline Time:</h3>
+                <p><%=i.timeofC%></p>
+              </div>
+            </li>
+
+            <%}%>
+          </ul>
+        </div>
       </div>
     </div>
   </body>
